@@ -8,9 +8,22 @@
 </head>
 <body>
 <ul class="nav nav-tabs">
-    <li role="presentation"><a href="/">Teams</a></li>
-    <li role="presentation"><a href="/teams/new">Add Team</a></li>
+    <li role="presentation"><a href="/">Home</a></li>
     <li role="presentation"><a href="/about">About</a></li>
+    <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" roll="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            {{#if teams}}
+                {{#each teams}}
+                    <li><a href="/teams/{{id}}">{{name}}</a></li>
+                {{/each}}
+                <li><a href="/teams/new">Add a team</a></li>
+
+            {{else}}
+                <li><a href="/teams/new">Add a team</a></li>
+            {{/if}}
+        </ul>
+    </li>
 </ul>
 <div class="main">
 <div class="jumbotron">
@@ -22,5 +35,8 @@
 {{/block}}
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </body>
 </html>

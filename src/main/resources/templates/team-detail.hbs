@@ -3,24 +3,20 @@
     <h3>{{team.name}}</h3>
     <p>{{team.description}}</p>
     <ul>Members:
-    {{#each team.members}}
-        <li>{{this}}</li>
-    {{/each}}
+        {{#if members}}
+    {{#each members}}
+        <li>{{name}} - <a href="/teams/{{team.id}}/members/{{id}}">details/manage</a> </li>
+        <li><a href="/teams/{{team.id}}/members/new">Add a new member</a></li>
+        {{/each}}
+        {{else}}
+            <li>No members! <a href="/teams/{{team.id}}/members/new">Add one</a></li>
+        {{/if}}
     </ul>
-    </div>
-    <hr>
-    <div class="well">
-    <h5>add a new member:</h5>
-    <form action="/teams/{{team.id}}/member/new" method="post">
-        <label for="member-name">Member name:</label>
-        <input id="member-name" name="member-name" type="text">
         <br>
-        <button class="btn btn-default" type="submit">Add</button>
-    </form>
-    <br>
-    <a href="/teams/{{team.id}}/update">Update team name/description</a>
-    <br>
-    <a href="/"><button class="btn btn-default"><</button></a>
+        <br>
+        <p><a href="/teams/{{team.id}}/update">Update this team</a></p>
+        <p><a href="/teams/{{team.id}}/members/delete">Delete all members</a></p>
+        <p><a href="/teams/{{team.id}}/delete">Delete this team and all members</a></p>
     </div>
 {{/partial}}
 

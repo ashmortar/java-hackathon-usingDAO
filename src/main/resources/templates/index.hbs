@@ -1,15 +1,15 @@
 {{#partial "content"}}
-    {{#if teams}}
-        {{#each teams}}
-            <div class="well">
-            <h3>{{name}}</h3>
-            <p>{{description}}</p>
-            <p><a href="teams/{{id}}">view/add team members</a></p>
-            </div>
-        {{/each}}
-    {{else}}
-        <h3>Sorry, no teams have been added</h3>
-    {{/if}}
+    <div class="well">
+    <h3>Why?! Hack-A-Thon</h3>
+    <p>they were do busy asking if they could to ask if they should</p>
+    <hr>
+    <p>What you can do</p>
+    <ul></ul>
+    <li><a href="/teams">See all teams</a></li>
+    <li><a href="/teams/new">Add new team</a></li>
+    <li><a href="/about">See what we're about</a></li>
+    </div>
+
 {{/partial}}
 
 {{> layout.hbs}}

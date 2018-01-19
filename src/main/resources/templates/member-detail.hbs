@@ -1,0 +1,18 @@
+{{#partial "content"}}
+    <div class="well">
+        <h3>{{member.name}}</h3>
+        <hr>
+        <p>email: {{member.email}}</p>
+        <p>twitter: {{member.twitter}}</p>
+        <br>
+        <br>
+        <p><a href="/teams/{{team.id}}/members/{{member.id}}/update">Update this member</a></p>
+        <o><a href="/teams/{{team.id}}/members/{{member.id}}/delete">Delete this member</a></o>
+        <br>
+        <br>
+        <a href="/teams/{{team.id}}"><button class="btn btn-default">back</button></a>
+    </div>
+
+{{/partial}}
+
+{{> layout.hbs}}

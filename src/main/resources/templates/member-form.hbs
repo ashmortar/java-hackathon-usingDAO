@@ -1,0 +1,35 @@
+{{#partial "content"}}
+    {{#if updateMember}}
+        <form action="/teams/{{team.id}}/members/{{updateMember.id}}/update" method="post">
+        <label for="newName">Change name:</label>
+        <br>
+        <input id="newName" name="newName" type="text" value="{{updateMember.name}}">
+        <br>
+        <label for="newEmail">Change email:</label>
+        <br>
+        <input id="newEmail" name="newEmail" type="email" value="{{updateMember.email}}">
+        <br>
+        <label for="newTwitter">Change twiiter:</label>
+        <br>
+        <input id="newTwitter" name="newTwitter" type="text" value="{{updateMember.twitter}}">
+    {{else}}
+    <form action="/teams/{{team.id}}/members/new" method="post">
+    <label for="name">Name:</label>
+    <br>
+    <input id="name" name="name" type="text">
+    <br>
+    <label for="email">email:</label>
+    <br>
+    <input id="email" name="email" type="email">
+    <br>
+    <label for="twitter">twitter:</label>
+    <br>
+    <input id="twitter" name="twitter" type="text" value="@">
+    {{/if}}
+        <button type="submit" class="btn btn-default">submit</button>
+    </form>
+        <br>
+        <br>
+        <a href="/teams/{{team.id}}"><button class="btn btn-default">back</button></a>
+{{/partial}}
+{{> layout.hbs}}
