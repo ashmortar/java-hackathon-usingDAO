@@ -1,12 +1,16 @@
 package dao;
 
+import models.Member;
+
+import java.util.List;
+
 public interface MemberDao {
 
     //create
-    //void add(Member member);
+    void add(Member member);
 
     //read
-    //List<Member> getAll();
+    List<Member> getAll();
     //Member findById(int id);
 
     //update
