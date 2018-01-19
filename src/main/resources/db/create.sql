@@ -2,6 +2,7 @@ SET MODE PostgreSQL;
 
 CREATE TABLE IF NOT EXISTS members (
 id int PRIMARY KEY auto_increment,
+teamId INTEGER,
 name VARCHAR,
 email VARCHAR,
 twitter VARCHAR
