@@ -16,7 +16,7 @@ public class Sql2oMemberDao implements MemberDao{
 
     @Override
     public void add(Member member) {
-        String sql = "INSERT INTO members (name, email, twitter) VALUES (:name, :email, :twitter)";
+        String sql = "INSERT INTO members (name, email, twitter, teamId) VALUES (:name, :email, :twitter, :teamId)";
         try (Connection con = sql2o.open()){
             int id =(int) con.createQuery(sql)
                     .bind(member)
