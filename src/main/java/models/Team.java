@@ -6,59 +6,54 @@ import java.util.ArrayList;
 public class Team {
     private String name;
     private String description;
-    private ArrayList<String> members = new ArrayList<>();
-    private static ArrayList<Team> instances = new ArrayList<>();
     private int id;
-
 
     public Team(String name, String description) {
         this.name = name;
         this.description = description;
-        instances.add(this);
-        this.id = instances.size();
     }
 
-    //getter methods
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public ArrayList<String> getMembers() {
-        return members;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getId() {
         return id;
     }
 
-
-    //other instance specific methods
-    public void addMember(String name) {
-        members.add(name);
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void updateName(String name) {
-        this.name = name;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Team team = (Team) o;
+
+        if (id != team.id) return false;
+        if (!name.equals(team.name)) return false;
+        return description != null ? description.equals(team.description) : team.description == null;
     }
 
-    public void updateDescription(String description) {
-        this.description = description;
-    }
-
-    //class wide (static) methods
-    public static void deleteAllTeams() {
-        instances.clear();
-    }
-
-    public static ArrayList<Team> getAllTeams() {
-        return instances;
-    }
-
-    public static Team findTeamById(int id) {
-        return instances.get(id-1);
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + id;
+        return result;
     }
 }
